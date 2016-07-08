@@ -9,6 +9,7 @@ class InputCodeComponent extends Component {
   }
 
   render() {
+    const { onChange } = this.props
     return (
 
       <View style={styles.inputCodeFieldView}>
@@ -16,8 +17,9 @@ class InputCodeComponent extends Component {
         Please enter your code
       </Text>
       <TextInput
+        autoFocus={true}
         style={styles.inputCodeField}
-        onChangeText={(text) => this.setState({text})}
+        onChangeText={(text) => onChange({text})}
         value={this.state.text}
         placeholder={this.state.placeholderText}
       />

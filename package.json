@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "stubs": "node ./stubs/server"
   },
   "dependencies": {
     "react": "15.2.0",
@@ -11,5 +12,9 @@
     "react-native-camera": "github:lwansbrough/react-native-camera",
     "react-native-passcode-auth": "^1.0.0",
     "react-native-touch-id": "^2.0.2"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
   }
 }

@@ -16,15 +16,21 @@ import { errors } from './constants/'
 import CameraApp from './components/CameraAppComponent'
 import InputCodeComponent from './components/InputCodeComponent'
 import HeaderComponent from './components/HeaderComponent'
-
+import authenticateCode from './lib/authenticateCode'
 
 class TouchMyBits extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { code: '' };
+  }
+
   render() {
     return (
       <View style={styles.container}>
-      
+
         <HeaderComponent />
-        <InputCodeComponent />
+        <InputCodeComponent onChange={this._onChangeText}/>
 
         <TouchableHighlight
           style={styles.btn}
@@ -35,13 +41,18 @@ class TouchMyBits extends Component {
           <Text style={styles.btnText}>
             Authenticate with Touch ID
           </Text>
+
         </TouchableHighlight>
       </View>
     );
   }
 
   _touchIDClickHandler() {
-    console.log(TouchID);
+
+      if (!this.state.code) {
+        AlertIOS.alert(`Enter a code you n00b`);
+        return false;
+      }
     TouchID.isSupported()
       .then(authenticate)
       .catch(error => {
@@ -52,12 +63,32 @@ class TouchMyBits extends Component {
   _qRCodeClickHandler() {
 
   }
+
+  _onChangeText(text){
+    this.setState((state) => {
+      return {
+        code: text
+      };
+    });
+  }
 }
 
 function authenticate() {
+
+
   return TouchID.authenticate()
     .then(success => {
-      AlertIOS.alert('Authenticated Successfully');
+
+      authenticateCode(this.state.code)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        AlertIOS.alert(`Authenticated Successfully with code: ${this.state.code} with a success response of: ${responseJson.success}`);
+        return responseJson.success;
+      })
+      .catch((error) => {
+       console.error(error);
+      });
+
     })
     .catch(error => {
       console.log(error)
