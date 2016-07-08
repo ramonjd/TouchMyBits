@@ -25,6 +25,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		F67657CD1D2F9A1900987DD8 /* libTouchID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67657C61D2F99D100987DD8 /* libTouchID.a */; };
 		F67657CE1D2F9A1D00987DD8 /* libPasscodeAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67657CC1D2F99E100987DD8 /* libPasscodeAuth.a */; };
+		F67657D51D2FA0BB00987DD8 /* libRCTCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F67657D41D2FA0AC00987DD8 /* libRCTCamera.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = PasscodeAuth;
 		};
+		F67657D31D2FA0AC00987DD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F67657CF1D2FA0AC00987DD8 /* RCTCamera.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
+			remoteInfo = RCTCamera;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +153,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		F67657B71D2F99D100987DD8 /* TouchID.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TouchID.xcodeproj; path = "../node_modules/react-native-touch-id/TouchID.xcodeproj"; sourceTree = "<group>"; };
 		F67657C71D2F99E100987DD8 /* PasscodeAuth.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PasscodeAuth.xcodeproj; path = "../node_modules/react-native-passcode-auth/PasscodeAuth.xcodeproj"; sourceTree = "<group>"; };
+		F67657CF1D2FA0AC00987DD8 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +171,7 @@
 			files = (
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				F67657D51D2FA0BB00987DD8 /* libRCTCamera.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				F67657CD1D2F9A1900987DD8 /* libTouchID.a in Frameworks */,
 				F67657CE1D2F9A1D00987DD8 /* libPasscodeAuth.a in Frameworks */,
@@ -284,6 +294,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F67657CF1D2FA0AC00987DD8 /* RCTCamera.xcodeproj */,
 				F67657C71D2F99E100987DD8 /* PasscodeAuth.xcodeproj */,
 				F67657B71D2F99D100987DD8 /* TouchID.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -341,6 +352,14 @@
 			isa = PBXGroup;
 			children = (
 				F67657CC1D2F99E100987DD8 /* libPasscodeAuth.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F67657D01D2FA0AC00987DD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F67657D41D2FA0AC00987DD8 /* libRCTCamera.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,6 +437,10 @@
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
+				},
+				{
+					ProductGroup = F67657D01D2FA0AC00987DD8 /* Products */;
+					ProjectRef = F67657CF1D2FA0AC00987DD8 /* RCTCamera.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -551,6 +574,13 @@
 			fileType = archive.ar;
 			path = libPasscodeAuth.a;
 			remoteRef = F67657CB1D2F99E100987DD8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F67657D41D2FA0AC00987DD8 /* libRCTCamera.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTCamera.a;
+			remoteRef = F67657D31D2FA0AC00987DD8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

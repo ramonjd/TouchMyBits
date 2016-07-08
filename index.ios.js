@@ -3,36 +3,36 @@ import React, { Component } from 'react';
 import {
   AlertIOS,
   AppRegistry,
-  StyleSheet,
   Text,
   TouchableHighlight,
+  TouchableOpacity,
+  NavigatorIOS,
   View
 } from 'react-native';
-
 import TouchID from 'react-native-touch-id';
 import PasscodeAuth from 'react-native-passcode-auth';
+import styles from './styles/';
+import { errors } from './constants/'
+import CameraApp from './components/CameraAppComponent'
+import InputCodeComponent from './components/InputCodeComponent'
+import HeaderComponent from './components/HeaderComponent'
+
 
 class TouchMyBits extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          react-native-touch-id
-        </Text>
+      
+        <HeaderComponent />
+        <InputCodeComponent />
 
-        <Text style={styles.instructions}>
-          github.com/naoufal/react-native-touch-id
-        </Text>
         <TouchableHighlight
           style={styles.btn}
-          onPress={this._clickHandler}
+          onPress={this._touchIDClickHandler}
           underlayColor="#0380BE"
           activeOpacity={1}
         >
-          <Text style={{
-            color: '#fff',
-            fontWeight: '600'
-          }}>
+          <Text style={styles.btnText}>
             Authenticate with Touch ID
           </Text>
         </TouchableHighlight>
@@ -40,7 +40,7 @@ class TouchMyBits extends Component {
     );
   }
 
-  _clickHandler() {
+  _touchIDClickHandler() {
     console.log(TouchID);
     TouchID.isSupported()
       .then(authenticate)
@@ -48,49 +48,11 @@ class TouchMyBits extends Component {
         passcodeAuth();
       });
   }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  welcome: {
-    margin: 10,
-    fontSize: 20,
-    fontWeight: '600',
-    textAlign: 'center'
-  },
-  instructions: {
-    marginBottom: 5,
-    color: '#333333',
-    fontSize: 13,
-    textAlign: 'center'
-  },
-  btn: {
-    borderRadius: 3,
-    marginTop: 200,
-    paddingTop: 15,
-    paddingBottom: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
-    backgroundColor: '#0391D7'
+  _qRCodeClickHandler() {
+
   }
-});
-
-const errors = {
-  "LAErrorAuthenticationFailed": "Authentication was not successful because the user failed to provide valid credentials.",
-  "LAErrorUserCancel": "Authentication was canceled by the user—for example, the user tapped Cancel in the dialog.",
-  "LAErrorUserFallback": "Authentication was canceled because the user tapped the fallback button (Enter Password).",
-  "LAErrorSystemCancel": "Authentication was canceled by system—for example, if another application came to foreground while the authentication dialog was up.",
-  "LAErrorPasscodeNotSet": "Authentication could not start because the passcode is not set on the device.",
-  "LAErrorTouchIDNotAvailable": "Authentication could not start because Touch ID is not available on the device",
-  "LAErrorTouchIDNotEnrolled": "Authentication could not start because Touch ID has no enrolled fingers.",
-  "RCTTouchIDUnknownError": "Could not authenticate for an unknown reason.",
-  "RCTTouchIDNotSupported": "Device does not support Touch ID."
-};
+}
 
 function authenticate() {
   return TouchID.authenticate()
@@ -117,3 +79,10 @@ function passcodeAuth() {
 }
 
 AppRegistry.registerComponent('TouchMyBits', () => TouchMyBits);
+
+
+
+// <TouchableOpacity onPress={this._qRCodeClickHandler}>
+//   <Text>Read QRCode</Text>
+//   <CameraApp onSuccess={(data)=>{console.log(data)}} />
+// </TouchableOpacity>
