@@ -44,7 +44,6 @@ class TouchMyBits extends Component {
     this.setState({
       code: code
     })
-    AlertIOS.alert(`Deep link ${e.url} with code ${code}`);
 
   }
 
@@ -107,7 +106,6 @@ function authenticate(code) {
       authenticateCode(code)
       .then((response) => response.status)
       .then((responseData) => {
-        console.log('responseDataresponseDataresponseDataresponseDataresponseDataresponseData', responseData);
         AlertIOS.alert(`Authenticated with code: ${code}`);
       })
       .catch((error) => {

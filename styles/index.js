@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'flex-start',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#e72f8d',
     padding: 10
   },
   headerView: {
@@ -16,11 +16,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 20,
     fontWeight: '600',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#ffffff'
   },
   instructions: {
     marginBottom: 5,
-    fontSize: 13
+    fontSize: 13,
+    color: '#ffffff'
   },
   btn: {
     borderRadius: 3,
@@ -43,15 +45,28 @@ const styles = StyleSheet.create({
   },
   inputCodeField: {
     height: 50,
-    borderColor: '#cccccc',
+    borderColor: '#ffffff',
+    color: '#ffffff',
+    fontWeight: '800',
     borderWidth: 1,
     width: 350,
     paddingLeft: 12,
-    paddingRight: 12
+    paddingRight: 12,
+    marginBottom: 10
   },
   logo: {
-    height: 52,
-    width: 82
+    height: 53,
+    width: 200
+  },
+  banana: {
+    height: 256,
+    width: 256
+  },
+  successView: {
+    flex:1,
+    alignItems: 'flex-start',
+    backgroundColor: '#e72f8d',
+    padding: 10
   }
 });
 

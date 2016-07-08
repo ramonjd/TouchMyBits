@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
     return (
       <View style={styles.headerView}>
 
-              <Image source={require('../assets/sky-logo.png')} style={styles.logo}/>
+              <Image source={require('../assets/nowtv-logo.png')} style={styles.logo}/>
                 <Text style={styles.welcome}>
                   Authenticate your TouchyBits
                 </Text>
