@@ -10,6 +10,8 @@ app.set('host', process.env.HOST || 'localhost');
 app.set('port', process.env.PORT || 9999);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../stubs')));
+
 
 app.post('/authenticate', function(req, res) {
     var code = req.body.code;
