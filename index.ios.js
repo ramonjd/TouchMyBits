@@ -105,15 +105,15 @@ function authenticate(code) {
     .then(success => {
 
       authenticateCode(code)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        AlertIOS.alert(`Authenticated with code: ${code} with a success response of: ${responseJson.success}`);
-        return responseJson.success;
+      .then((response) => response.status)
+      .then((responseData) => {
+        console.log('responseDataresponseDataresponseDataresponseDataresponseDataresponseData', responseData);
+        AlertIOS.alert(`Authenticated with code: ${code}`);
       })
       .catch((error) => {
        console.error(error);
+       AlertIOS.alert(`Error: could not authenitcate with code: ${code}`);
       });
-
     })
     .catch(error => {
       console.log(error)

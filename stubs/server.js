@@ -3,7 +3,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var http = require('http');
-
 var app = express();
 app.set('env', process.env.NODE_ENV || 'development');
 app.set('host', process.env.HOST || 'localhost');
